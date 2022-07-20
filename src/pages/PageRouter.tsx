@@ -27,13 +27,12 @@ export default function PageRouter({handleScrollChange}: PageRouterProps) {
                 }
             }}
             sx={{
-                position: 'fixed',
                 width: '100%',
                 height: '100%',
                 overflowY: 'auto',
                 top:0,
                 bottom: 0,
-                paddingBottom: '400px'
+                paddingBottom: '300px'
             }} 
         >
             <Box 
