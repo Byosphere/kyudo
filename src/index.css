@@ -15,3 +15,8 @@ code {
 #root {
   width: 100%;
 }
+
+@font-face {
+  font-family: "Shark";
+  src: url("./fonts/sharkmadeinjapan.ttf") format("truetype");
+}

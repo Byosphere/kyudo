@@ -1,31 +1,10 @@
-import { Box, Fab, useScrollTrigger } from "@mui/material";
+import { Box, Divider, Fab, Grid, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useEffect, useState } from "react";
 
-interface PageRouterProps {
-    handleScrollChange: (value:boolean) => void;
-}
-
-export default function PageRouter({handleScrollChange}: PageRouterProps) {
-
-    const [scrollTarget, setScrollTarget] = useState<HTMLDivElement | undefined>(undefined);
-    const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 60,
-        target: scrollTarget
-      });
-
-    useEffect(() => {
-        handleScrollChange(trigger);
-    }, [trigger, handleScrollChange]);
+export default function PageRouter() {
 
     return (
-        <Box 
-            ref={(node: HTMLDivElement)=> {
-                if (node) {
-                    setScrollTarget(node);
-                }
-            }}
+        <Box
             sx={{
                 width: '100%',
                 height: '100%',
@@ -38,7 +17,7 @@ export default function PageRouter({handleScrollChange}: PageRouterProps) {
             <Box 
                 sx={{
                     position: 'relative',
-                    width: 'calc(100% - 80px)',
+                    width: 'calc(100% - 64px)',
                     marginTop: '196px',
                     backgroundColor: '#F5F5F6',
                     paddingTop: '80px',
@@ -53,16 +32,28 @@ export default function PageRouter({handleScrollChange}: PageRouterProps) {
                 }}>
                     <KeyboardArrowDownIcon /> 
                 </Fab>
-                {/* <Typography variant="h2" gutterBottom sx={{padding: '0 50px', fontSize: '24px'}}>
-                    La pratique du Kyudo existe en Bretagne depuis 1984, soutenue et développée par Loïc De Penhouët, élève de Jacques Normand Senseï. 
-                    <br />
-                    À l'heure actuelle, deux clubs, situés à Rennes et à Morlaix, assurent une pratique régulière et hebdomadaire du Kyudo.
-                    <br />
-                    À Rennes, l'association Kyudo 35, et à Morlaix, l'association Kyudo 29
-                    Les enseignants des deux clubs sont formés par Jacques Normand Senseï, garant de l'enseignement traditionnel japonais du Kyudo.
-                    <br />
-                    Les deux clubs travaillent en étroite collaboration et se retrouvent régulièrement au long de l'année.
-                </Typography> */}
+                <Typography component="div" gutterBottom sx={{margin: {xs: '', lg:'50px 134px 80px 134px'}, fontSize: '22px', maxWidth: '900px'}}>
+                    La pratique du Kyudo existe en Bretagne depuis 1984, soutenue et développée par <Box component="span" sx={{color: 'primary.main'}}>Loïc De Penhouët</Box>, 
+                    élève de <Box component="span" sx={{color: 'primary.main'}}>Jacques Normand Senseï</Box>, garant de l'enseignement traditionnel japonais du Kyudo.
+                </Typography>
+
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Typography variant="h4" sx={{marginLeft: '60px', color: 'primary.main'}}>
+                            Actualités
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h4" sx={{marginLeft: '60px', color: 'primary.main'}}>
+                            Tradition
+                        </Typography>
+                    </Grid>
+                </Grid>
+                {/* {[1,2,3,4,5,6].map(() => (<>
+                    <Typography variant="h5">Upcycling and Timber Structure</Typography>
+                    <Typography variant="h6">Rogether with our collaborators we’re proud to share our proposal for the international design competition for a new Philharmonic Hall in the historic capital of the Czech Republic.</Typography>
+                    <Typography variant="h6">Rogether with our collaborators we’re proud to share our proposal for the international design competition for a new Philharmonic Hall in the historic capital of the Czech Republic.</Typography>
+                </>))} */}
             </Box>
         </Box>
     );
