@@ -1,5 +1,6 @@
 import { Box, Divider, Fab, Grid, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Actu from "../components/Actu";
 
 export default function PageRouter() {
 
@@ -32,23 +33,17 @@ export default function PageRouter() {
                 }}>
                     <KeyboardArrowDownIcon /> 
                 </Fab>
-                <Typography component="div" gutterBottom sx={{margin: {xs: '', lg:'50px 134px 80px 134px'}, fontSize: '22px', maxWidth: '900px'}}>
-                    La pratique du Kyudo existe en Bretagne depuis 1984, soutenue et développée par <Box component="span" sx={{color: 'primary.main'}}>Loïc De Penhouët</Box>, 
-                    élève de <Box component="span" sx={{color: 'primary.main'}}>Jacques Normand Senseï</Box>, garant de l'enseignement traditionnel japonais du Kyudo.
-                </Typography>
+                <Box sx={{display: 'flex'}}>
+                    <Typography component="div" gutterBottom sx={{margin: {xs: '0 20px', lg:'50px 134px 80px 134px'}, fontSize: {xs: '18px', lg:'22px'}, maxWidth: '900px'}}>
+                        La pratique du Kyudo existe en Bretagne depuis 1984, soutenue et développée par <Box component="span" sx={{color: 'primary.main'}}>Loïc De Penhouët</Box>, 
+                        élève de <Box component="span" sx={{color: 'primary.main'}}>Jacques Normand Senseï</Box>, garant de l'enseignement traditionnel japonais du Kyudo.
+                    </Typography>
+                </Box>
 
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <Typography variant="h4" sx={{marginLeft: '60px', color: 'primary.main'}}>
-                            Actualités
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography variant="h4" sx={{marginLeft: '60px', color: 'primary.main'}}>
-                            Tradition
-                        </Typography>
-                    </Grid>
-                </Grid>
+                <Typography variant="h4" sx={{margin: '30px 0 0 60px', color: 'primary.main'}}>
+                    Actualités
+                </Typography>
+                <Actu />
                 {/* {[1,2,3,4,5,6].map(() => (<>
                     <Typography variant="h5">Upcycling and Timber Structure</Typography>
                     <Typography variant="h6">Rogether with our collaborators we’re proud to share our proposal for the international design competition for a new Philharmonic Hall in the historic capital of the Czech Republic.</Typography>

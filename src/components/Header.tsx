@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import Box from "@mui/system/Box";
+import image from "../img/tokuda_bandeau.jpg";
 
 export default function Header() {
     
@@ -8,7 +9,22 @@ export default function Header() {
             display: 'flex',
             alignItems: 'center',
             height: '196px',
-            justifyContent: {xs: 'center', lg: 'initial'}
+            justifyContent: {xs: 'center', lg: 'initial'},
+            position: 'relative',
+            '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: 'url("'+image+'")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.2
+            }
+
         }}>
             <Box sx={{position: 'relative'}}>
                 <Typography variant="h1" sx={{
@@ -41,7 +57,7 @@ export default function Header() {
                 <Typography variant='h2' sx={{fontSize: 40, marginLeft: '60px', marginTop: '30px'}}>
                     Le tir à l'arc japonais en Bretagne
                 </Typography>
-                <Typography variant='h3' sx={{fontSize: 16, marginLeft: '60px', textAlign: 'right', fontWeight: 300}}>
+                <Typography variant='h3' sx={{fontSize: 16, marginLeft: '60px', textAlign: 'right', fontWeight: 300, marginRight: '20px'}}>
                     Rennes - Le minihic-sur-rance - Morlaix
                 </Typography>
             </Box>

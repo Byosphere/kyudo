@@ -31,7 +31,7 @@ export default function Navigator() {
             width: '100%',
             height: '196px',
             alignItems: 'center',
-            padding: '0 64px',
+            padding: '0 64px 0 0',
             justifyContent: 'flex-end'
         }}>
             {!trigger && matches && <Tabs  variant="scrollable"
@@ -47,7 +47,7 @@ export default function Navigator() {
           <Menu sx={{ fontSize: 30 }}/>
         </IconButton>}
 
-        {(trigger || !matches) && <Button size="large" color="secondary" aria-label="upload picture" sx={{position:'absolute', bottom: '70px', right: '-58px', transform: 'rotate(90deg)'}} startIcon={<KeyboardArrowLeft />}>
+        {trigger && <Button size="large" color="secondary" aria-label="upload picture" sx={{position:'absolute', bottom: '70px', right: '-58px', transform: 'rotate(90deg)'}} startIcon={<KeyboardArrowLeft />}>
           Retour en haut
         </Button>}
       </>
