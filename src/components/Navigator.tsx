@@ -7,6 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navigator() {
 
@@ -40,9 +41,9 @@ export default function Navigator() {
           allowScrollButtonsMobile
           value={value} onChange={handleChange} aria-label="nav tabs example" indicatorColor='secondary' textColor='secondary' sx={{}}
         >
-          <LinkTab label="Actualités" href="/actualites" />
-          <LinkTab label="Pratiquer" href="/tradition" />
-          <LinkTab label="Contact" href="/contact" />
+          <Tab label="Actualités" value="/" to="/" component={Link} />
+          <Tab label="Pratiquer" value="/tradition" to="/tradition" component={Link} />
+          <Tab label="Contact" value="/contact" to="/contact" component={Link} />
         </Tabs>}
       </Box>
       {(trigger || !matches) && <IconButton size="large" color="secondary" aria-label="upload picture" sx={{ position: 'absolute', top: 0, right: '5px' }}>
@@ -53,23 +54,5 @@ export default function Navigator() {
         Retour en haut
       </Button>}
     </>
-  );
-}
-
-
-interface LinkTabProps {
-  label?: string;
-  href?: string;
-}
-
-function LinkTab(props: LinkTabProps) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
   );
 }

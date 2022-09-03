@@ -3,6 +3,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Actu from "../components/Actu";
 import img from '../img/tokuda_bandeau.jpg';
 import Home from "./Home";
+import { Route, Routes } from "react-router-dom";
+import Detail from "./Detail";
+import Contact from "./Contact";
 
 export default function PageRouter() {
 
@@ -46,7 +49,11 @@ export default function PageRouter() {
                     <KeyboardArrowDownIcon />
                 </Fab>
                 <Box sx={{ height: '100%', overflow: 'hidden', padding: '20px 16px' }}>
-                    <Home />
+                    <Routes>
+                        <Route index element={<Home />} />
+                        <Route path="pratiquer" element={<Detail />} />
+                        <Route path="contact" element={<Contact />} />
+                    </Routes>
                 </Box>
             </Box>
         </Box>
