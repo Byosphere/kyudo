@@ -6,8 +6,12 @@ import Footer from "../components/Footer";
 import FooterNav from "../components/FooterNav";
 import Box from "@mui/material/Box";
 import { teal } from "@mui/material/colors";
+import { useMediaQuery } from "@mui/material";
+import theme from "../theme";
 
 export default function Mainpage() {
+
+    const matches = useMediaQuery(theme.breakpoints.up('lg'));
 
     return (
       <>
@@ -31,8 +35,8 @@ export default function Mainpage() {
                 height: '100vh',
                 backgroundColor: teal[500],
               }}>
-              <Navigator />
-              <FooterNav />
+                <Navigator />
+                {matches && <FooterNav />} 
             </Box>
           </Grid>
         </Grid>

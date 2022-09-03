@@ -1,8 +1,19 @@
-import { Box, Divider, Fab, Grid, Typography } from "@mui/material";
+import { Box, Fab, Grid, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Actu from "../components/Actu";
+import img from '../img/tokuda_bandeau.jpg';
 
 export default function PageRouter() {
+
+    const actu = {
+        region: 'R',
+        title: 'Titre de la news',
+        date: new Date(),
+        img,
+        shortText: 'Bla bla bla'
+    }
+
+
 
     return (
         <Box
@@ -43,7 +54,28 @@ export default function PageRouter() {
                 <Typography variant="h4" sx={{margin: '30px 0 0 60px', color: 'primary.main'}}>
                     Actualités
                 </Typography>
-                <Actu />
+                <Box sx={{margin: '20px 16px'}}>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Actu {...actu} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Actu {...actu}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Actu {...actu}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Actu {...actu}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Actu {...actu}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Actu {...actu}/>
+                    </Grid>
+                </Grid>
+                </Box>
                 {/* {[1,2,3,4,5,6].map(() => (<>
                     <Typography variant="h5">Upcycling and Timber Structure</Typography>
                     <Typography variant="h6">Rogether with our collaborators we’re proud to share our proposal for the international design competition for a new Philharmonic Hall in the historic capital of the Czech Republic.</Typography>
