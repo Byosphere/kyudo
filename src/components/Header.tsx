@@ -3,13 +3,13 @@ import Box from "@mui/system/Box";
 import image from "../img/tokuda_bandeau.jpg";
 
 export default function Header() {
-    
+
     return (
         <Box sx={{
             display: 'flex',
             alignItems: 'center',
             height: '196px',
-            justifyContent: {xs: 'center', lg: 'initial'},
+            justifyContent: { xs: 'center', lg: 'initial' },
             position: 'relative',
             '&:before': {
                 content: '""',
@@ -19,16 +19,16 @@ export default function Header() {
                 top: 0,
                 width: '100%',
                 height: '100%',
-                backgroundImage: 'url("'+image+'")',
+                backgroundImage: 'url("' + image + '")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 opacity: 0.2
             }
 
         }}>
-            <Box sx={{position: 'relative'}}>
+            <Box sx={{ position: 'relative' }}>
                 <Typography variant="h1" sx={{
-                    marginLeft: {md: '40px', xs: '35px'},
+                    marginLeft: { md: '40px', xs: '35px' },
                     paddingRight: '42px',
                     fontFamily: 'Shark'
                 }}>
@@ -53,11 +53,11 @@ export default function Header() {
                     Association Bretagne Kyudo
                 </Typography>
             </Box>
-            <Box sx={{display: { xs: 'none', md: 'block' }}}>
-                <Typography variant='h2' sx={{fontSize: 40, marginLeft: '60px', marginTop: '30px'}}>
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                <Typography variant='h2' sx={{ fontSize: 40, marginLeft: '60px', marginTop: '30px' }}>
                     Le tir à l'arc japonais en Bretagne
                 </Typography>
-                <Typography variant='h3' sx={{fontSize: 16, marginLeft: '60px', textAlign: 'right', fontWeight: 300, marginRight: '20px'}}>
+                <Typography variant='h3' sx={{ fontSize: 16, marginLeft: '60px', textAlign: 'right', fontWeight: 300, marginRight: '20px' }}>
                     Rennes - Le minihic-sur-rance - Morlaix
                 </Typography>
             </Box>

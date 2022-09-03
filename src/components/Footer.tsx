@@ -8,9 +8,9 @@ export default function Footer() {
     };
 
     return (
-        <Box sx={{height: '300px', display: 'flex', padding:'70px 0', justifyContent: 'space-around'}}>
+        <Box sx={{ height: '300px', display: 'flex', padding: '70px 0', justifyContent: 'space-around' }}>
             <Box sx={blockStyle}>
-                <Typography variant="h5" sx={{textTransform: 'uppercase'}}>
+                <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
                     Minihic sur rance
                 </Typography>
                 <Typography variant="body1">
@@ -19,7 +19,7 @@ export default function Footer() {
                 </Typography>
             </Box>
             <Box sx={blockStyle}>
-                <Typography variant="h5" sx={{textTransform: 'uppercase'}}>
+                <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
                     Morlaix
                 </Typography>
                 <Typography variant="body1">
@@ -29,7 +29,7 @@ export default function Footer() {
                 </Typography>
             </Box>
             <Box sx={blockStyle}>
-                <Typography variant="h5" sx={{textTransform: 'uppercase'}}>
+                <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
                     Rennes
                 </Typography>
                 <Typography variant="body1">
