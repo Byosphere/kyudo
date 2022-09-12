@@ -26,9 +26,8 @@ export default function Header() {
             }
 
         }}>
-            <Box sx={{ position: 'relative' }}>
+            <Box sx={{ position: 'relative', marginLeft: [0, 0, '35px'] }}>
                 <Typography variant="h1" sx={{
-                    marginLeft: { md: '40px', xs: '35px' },
                     paddingRight: '42px',
                     fontFamily: 'Shark'
                 }}>
@@ -45,7 +44,6 @@ export default function Header() {
                     弓<br />道
                 </Typography>
                 <Typography component='span' sx={{
-                    marginLeft: '40px',
                     display: 'block',
                     marginTop: '-10px',
                     textAlign: 'center'

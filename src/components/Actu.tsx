@@ -1,9 +1,5 @@
-import { CardMedia, CardContent, Typography } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
+import { CardMedia, CardContent, Typography, CardHeader, Chip } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import { red } from "@mui/material/colors";
-import img from '../img/tokuda_bandeau.jpg';
 
 interface Props {
     region: string;
@@ -13,29 +9,26 @@ interface Props {
     shortText: string;
 }
 
-export default function Actu(props: Props) {
+export default function Actu({ img, title, region, shortText }: Props) {
     return (
-        <Card>
+        <Card sx={{ margin: '10px', backgroundColor: 'transparent', borderTop: '2px solid', borderColor: 'primary.main' }} elevation={0}>
             <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: red[500] }}>
-                        Mor
-                    </Avatar>
+                subheader="14 septembre 2016"
+                action={
+                    <Chip label={region} size="small" color="primary" />
                 }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
             />
             <CardMedia
                 component="img"
-                height="300"
+                height="140"
                 image={img}
-                alt="Paella dish"
             />
             <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {title}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
+                    {shortText}
                 </Typography>
             </CardContent>
         </Card>

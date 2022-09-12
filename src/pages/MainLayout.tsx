@@ -11,12 +11,12 @@ import theme from "../theme";
 
 export default function MainLayout() {
 
-  const matches = useMediaQuery(theme.breakpoints.up('lg'));
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <>
       <Grid container spacing={0} sx={{ position: 'fixed' }}>
-        <Grid item lg={8} xs={9}>
+        <Grid item md={8} sx={{ width: ['calc(100% - 64px)', 'calc(100% - 64px)', 'inherit'] }}>
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -27,7 +27,7 @@ export default function MainLayout() {
             <Footer />
           </Box>
         </Grid>
-        <Grid item lg={4} xs={3}>
+        <Grid item md={4} sx={{ width: ['64px', '64px', 'inherit'] }}>
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',

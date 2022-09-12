@@ -1,4 +1,4 @@
-import { ArrowUpward, KeyboardArrowLeft, KeyboardArrowRight, KeyboardArrowUp, Menu } from "@mui/icons-material";
+import { ArrowUpward, Home, KeyboardArrowLeft, KeyboardArrowRight, KeyboardArrowUp, Mail, Menu, SportsGymnastics } from "@mui/icons-material";
 import { Button, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -7,17 +7,32 @@ import Tabs from "@mui/material/Tabs";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navigator() {
 
   const theme = useTheme();
-  const [value, setValue] = useState<number>(0);
-  const matches = useMediaQuery(theme.breakpoints.up('lg'));
+  const [value, setValue] = useState<string>('/');
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const navigate = useNavigate();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleChangeRoute = (route: string) => {
+    setValue(route);
+    navigate(route);
+    handleClick();
+  }
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -46,11 +61,25 @@ export default function Navigator() {
           <Tab label="Contact" value="/contact" to="/contact" component={Link} />
         </Tabs>}
       </Box>
-      {(trigger || !matches) && <IconButton size="large" color="secondary" aria-label="upload picture" sx={{ position: 'absolute', top: 0, right: '5px' }}>
-        <Menu sx={{ fontSize: 30 }} />
-      </IconButton>}
+      {(trigger || !matches) && <>
+        <IconButton onClick={() => handleChangeRoute('/')} size="large" color={value === '/' ? 'secondary' : 'default'} sx={{ position: 'absolute', top: 0, right: '5px' }}>
+          <Home sx={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={() => handleChangeRoute('/tradition')} size="large" color={value === '/tradition' ? 'secondary' : 'default'} sx={{ position: 'absolute', top: '64px', right: '5px' }}>
+          <SportsGymnastics sx={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={() => handleChangeRoute('/contact')} size="large" color={value === '/contact' ? 'secondary' : 'default'} sx={{ position: 'absolute', top: '128px', right: '5px' }}>
+          <Mail sx={{ fontSize: 30 }} />
+        </IconButton>
+      </>}
 
-      {trigger && <Button size="large" color="secondary" aria-label="upload picture" sx={{ position: 'absolute', bottom: '70px', right: '-58px', transform: 'rotate(90deg)' }} startIcon={<KeyboardArrowLeft />}>
+      {trigger && <Button
+        onClick={handleClick}
+        size="large"
+        color="secondary"
+        sx={{ position: 'absolute', bottom: '70px', right: '-58px', transform: 'rotate(90deg)' }}
+        startIcon={<KeyboardArrowLeft />}
+      >
         Retour en haut
       </Button>}
     </>

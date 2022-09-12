@@ -1,7 +1,5 @@
-import { Box, Fab, Grid, Typography } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Actu from "../components/Actu";
-import img from '../img/tokuda_bandeau.jpg';
 import Home from "./Home";
 import { Route, Routes } from "react-router-dom";
 import Detail from "./Detail";
@@ -9,15 +7,16 @@ import Contact from "./Contact";
 
 export default function PageRouter() {
 
-    const actu = {
-        region: 'R',
-        title: 'Titre de la news',
-        date: new Date(),
-        img,
-        shortText: 'Bla bla bla'
+    const handleClick = () => {
+        const title = document.getElementById('anchor-title');
+        if (title) {
+            window.scrollTo({
+                top: title.offsetTop + 180,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
     }
-
-
 
     return (
         <Box
@@ -37,15 +36,20 @@ export default function PageRouter() {
                     marginTop: '196px',
                     backgroundColor: '#F5F5F6',
                     paddingTop: '80px',
-                    height: 2000,
                     zIndex: 2
                 }}
             >
-                <Fab color="primary" aria-label="add" size="medium" sx={{
-                    position: 'absolute',
-                    top: '-20px',
-                    left: '114px'
-                }}>
+                <Fab
+                    color="primary"
+                    aria-label="add"
+                    size="medium"
+                    onClick={handleClick}
+                    sx={{
+                        position: 'absolute',
+                        top: '-20px',
+                        left: ['20px', '20px', '114px']
+                    }}
+                >
                     <KeyboardArrowDownIcon />
                 </Fab>
                 <Box sx={{ height: '100%', overflow: 'hidden', padding: '20px 16px' }}>
